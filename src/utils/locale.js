@@ -321,12 +321,12 @@ export default class Locale {
     this.firstDayOfWeek = clamp(firstDayOfWeek, 1, daysInWeek);
     this.masks = masks;
     this.timezone = timezone || undefined;
-    this.dayNames = translations?.dayNames || this.getDayNames('long');
-    this.dayNamesShort = translations?.dayNamesShort || this.getDayNames('short');
-    this.dayNamesShorter = translations?.dayNamesShorter || this.dayNamesShort.map(s => s.substring(0, 2));
-    this.dayNamesNarrow = translations?.dayNamesNarrow || this.getDayNames('narrow');
-    this.monthNames = translations?.monthNames || this.getMonthNames('long');
-    this.monthNamesShort = translations?.monthNamesShort || this.getMonthNames('short');
+    this.dayNames = translations && translations.dayNames || this.getDayNames('long');
+    this.dayNamesShort = translations && translations.dayNamesShort || this.getDayNames('short');
+    this.dayNamesShorter = translations && translations.dayNamesShorter || this.dayNamesShort.map(s => s.substring(0, 2));
+    this.dayNamesNarrow = translations && translations.dayNamesNarrow || this.getDayNames('narrow');
+    this.monthNames = translations && translations.monthNames || this.getMonthNames('long');
+    this.monthNamesShort = translations && translations.monthNamesShort || this.getMonthNames('short');
     this.amPm = ['am', 'pm'];
     this.monthData = {};
     // Bind methods
